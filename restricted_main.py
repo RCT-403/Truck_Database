@@ -570,8 +570,6 @@ main_button_frame.pack(expand=True)
 
 # Create main_frame buttons and assign actions
 main_buttons = [
-    ("Show all trucks", lambda: show_database()),
-    ("Show all active/inactive trucks", move_to_active_pg),
     ("Check a truck", move_to_truck_entry),
     ("Add a new truck", add_new_truck_pg),
     ("Add a new repair", add_new_repair_pg),
@@ -581,31 +579,6 @@ main_buttons = [
 for text, command in main_buttons:
     btn = tk.Button(main_button_frame, text=text, command=command)
     btn.pack(pady=10, padx=20, fill='x')  # Reduced vertical padding
-
-# Active/Inactive Frame
-active_frame = tk.Frame(root)
-
-# Create the active_frame title label
-active_title = tk.Label(active_frame, text="Choose the status", font=("Helvetica", 16))
-active_title.pack(pady=20)  
-
-# Create a frame for active_frame buttons
-active_button_frame = tk.Frame(active_frame)
-active_button_frame.pack(expand=True)
-
-# Create active_frame buttons and assign actions
-active_buttons = [
-    ("Show all active trucks", lambda: show_database(status='active')),
-    ("Show all inactive trucks", lambda: show_database(status='inactive')),
-    ("Show all sold trucks", lambda: show_database(status='sold')),
-]
-
-for text, command in active_buttons:
-    btn = tk.Button(active_button_frame, text=text, command=command)
-    btn.pack(pady=10, padx=20, fill='x')  # Reduced vertical padding
-
-back_btn = tk.Button(active_button_frame, text="Back", command=back_main_pg)
-back_btn.pack(pady=60, padx=20, fill='x')
 
 # Truck Repairs Frame
 truck_frame = tk.Frame(root)
@@ -621,8 +594,6 @@ truck_button_frame.pack(expand=True)
 # Create truck_frame buttons and assign actions
 truck_buttons = [
     ("Show current details", lambda: show_database(status='location', plate_no=plate_no if plate_no else None, body_no=body_no if body_no else None)),
-    ("Show all repairs", lambda: show_database(plate_no=plate_no if plate_no else None, body_no=body_no if body_no else None)),
-    ("Show repairs in a time frame", move_to_time_frame_pg),
     ("Change Status or Location", move_to_update_truck_pg)
 ]
 
