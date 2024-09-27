@@ -3,7 +3,7 @@ import json
 
 
 def get_request(status=None, location=None, plate_no=None, body_no=None, start=None, end=None):
-    url = 'https://script.google.com/macros/s/AKfycbw39GDcsVzUi7sWkeeSkWrMB0Hg5WshJXksiT2YaGKc7wMksD9pXU37m6UJ28YRrCGh/exec'
+    url = 'google_apps_script_link'
     params = {}
     
     if status:
